@@ -26,6 +26,13 @@ const Hero = () => {
           <a href="#contact" className="border border-gray-600 hover:border-gray-400 text-white px-8 py-3 rounded-lg font-semibold transition-all">
             Contact Me
           </a>
+          <a 
+  href="/Utkarsh_Resume.pdf" 
+  download="Utkarsh_Resume.pdf"
+  className="px-8 py-4 border border-white/10 text-white rounded-full font-bold backdrop-blur-sm hover:bg-white/5 transition-all text-center"
+>
+  Download CV
+</a>
         </div>
       </motion.div>
     </section>
