@@ -22,9 +22,9 @@ const Projects = () => {
                 <a href={project.link} className="flex items-center gap-1 text-sm text-blue-400 hover:underline">
                   <ExternalLink size={16} /> Live Demo
                 </a>
-                <a href="#" className="flex items-center gap-1 text-sm text-gray-400 hover:text-white">
-                  <Github size={16} /> GitHub
-                </a>
+                <a href={project.github} className="flex items-center gap-1 text-sm text-gray-400 hover:text-white">
+  <Github size={16} /> GitHub
+</a>
               </div>
             </div>
           ))}
