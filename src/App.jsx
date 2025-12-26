@@ -1,8 +1,11 @@
+import Hero from './components/Hero';
+
 function App() {
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
-      <h1 className="text-4xl font-bold italic">Utkarsh's Portfolio Coming Soon...</h1>
-    </div>
-  )
+    <main className="bg-[#0f172a]">
+      <Hero />
+    </main>
+  );
 }
-export default App
+
+export default App;
