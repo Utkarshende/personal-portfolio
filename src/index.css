@@ -28,3 +28,11 @@ body {
   background: var(--accent);
   color: black;
 }
+.outline-text {
+  -webkit-text-stroke: 1px black;
+  color: transparent;
+}
+
+.outline-text:hover {
+  color: black;
+}

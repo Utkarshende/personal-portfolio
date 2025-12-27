@@ -8,31 +8,44 @@ const Marquee = () => {
     offset: ["start end", "end start"]
   });
 
-  // Moves the text horizontally based on scroll
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
-  
-  // Creates the dramatic tilt (skew) based on scroll position
-  const skew = useTransform(scrollYProgress, [0, 1], [-15, 15]);
+  // Layer 1: Moves Left, Skews Positive
+  const xLeft = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
+  const skewRight = useTransform(scrollYProgress, [0, 1], [-20, 20]);
+
+  // Layer 2: Moves Right, Skews Negative
+  const xRight = useTransform(scrollYProgress, [0, 1], ["-50%", "0%"]);
+  const skewLeft = useTransform(scrollYProgress, [0, 1], [20, -20]);
 
   const items = ["MongoDB", "Express", "React", "Node.js", "Tailwind", "Framer", "Redux", "JWT"];
 
   return (
-    <section ref={targetRef} className="py-12 bg-white overflow-hidden border-y border-gray-100">
+    <section ref={targetRef} className="py-20 bg-white overflow-hidden flex flex-col gap-4">
+      
+      {/* Top Row: Aggressive Tilt Right */}
       <motion.div 
-        style={{ x, skewX: skew }}
-        className="flex whitespace-nowrap gap-12 items-center"
+        style={{ x: xLeft, skewX: skewRight }}
+        className="flex whitespace-nowrap gap-8 items-center border-y border-black py-4 bg-black text-white"
       >
-        {/* We repeat the items 3-4 times to ensure the line never breaks */}
-        {[...items, ...items, ...items, ...items].map((item, i) => (
-          <div key={i} className="flex items-center gap-12">
-            <span className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-black/10 hover:text-black transition-colors duration-500 italic">
-              {item}
-            </span>
-            {/* The Aziz-style separator dot */}
-            <div className="w-4 h-4 rounded-full bg-[#bef264] border border-black/10" />
-          </div>
+        {[...items, ...items, ...items].map((item, i) => (
+          <span key={i} className="text-6xl md:text-8xl font-black uppercase tracking-[ -0.05em] italic">
+            {item} <span className="text-[#bef264]">★</span>
+          </span>
         ))}
       </motion.div>
+
+      {/* Bottom Row: Aggressive Tilt Left (Opposite Direction) */}
+      <motion.div 
+        style={{ x: xRight, skewX: skewLeft }}
+        className="flex whitespace-nowrap gap-8 items-center border-y border-black py-4"
+      >
+        {[...items, ...items, ...items].map((item, i) => (
+          <span key={i} className="text-6xl md:text-8xl font-black uppercase tracking-[-0.05em] outline-text transition-all duration-700 hover:italic"
+            style={{ WebkitTextStroke: '1px black', color: 'transparent' }}>
+            {item} <span className="text-black">★</span>
+          </span>
+        ))}
+      </motion.div>
+
     </section>
   );
 };
