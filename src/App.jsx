@@ -1,4 +1,6 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
+import Preloader from './components/Preloader';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -8,31 +10,32 @@ import Contact from './components/Contact';
 import Cursor from './components/Cursor';
 
 function App() {
-  return (
-    <div className="bg-white min-h-screen selection:bg-[#bef264] selection:text-black">
-      <Cursor />
-      <Navbar />
-      
-      <AnimatePresence>
-        <motion.main
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <Hero />
-          <About />
-          <Marquee />
-          <Projects />
-          <Contact />
-        </motion.main>
-      </AnimatePresence>
+  const [loading, setLoading] = useState(true);
 
-      <footer className="py-10 text-center bg-white border-t border-gray-100">
-        <p className="text-xs font-bold uppercase tracking-widest text-gray-400">
-          © 2025 Utkarsh Sharma — Built with MERN Stack
-        </p>
-      </footer>
-    </div>
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 2500);
+  }, []);
+
+  return (
+    <>
+      <AnimatePresence mode="wait">
+        {loading && <Preloader />}
+      </AnimatePresence>
+      
+      {!loading && (
+        <div className="bg-white">
+          <Cursor />
+          <Navbar />
+          <main>
+            <Hero />
+            <About />
+            <Marquee />
+            <Projects />
+            <Contact />
+          </main>
+        </div>
+      )}
+    </>
   );
 }
 
