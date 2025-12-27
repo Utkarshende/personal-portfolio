@@ -7,20 +7,33 @@ const Logo = () => {
   return (
     <motion.div 
       onMouseEnter={playHover}
-      className="relative overflow-hidden cursor-none group"
+      className="flex items-center gap-1 cursor-none group font-mono"
     >
-      <motion.div
-        whileHover={{ y: -30 }}
-        transition={{ duration: 0.4, ease: [0.33, 1, 0.68, 1] }}
-        className="flex flex-col"
-      >
-        <span className="font-black text-2xl tracking-tighter uppercase leading-none">
-          UTKARSH<span className="text-[#bef264]">.</span>
-        </span>
-        <span className="font-black text-2xl tracking-tighter uppercase leading-none text-[#bef264] absolute top-full">
-          UTKARSH<span className="text-black">.</span>
-        </span>
-      </motion.div>
+      {/* The Opening Bracket */}
+      <span className="text-gray-400 text-xl font-light">{'<'}</span>
+      
+      <div className="relative overflow-hidden h-7">
+        <motion.div
+          whileHover={{ y: -28 }}
+          transition={{ duration: 0.5, ease: [0.33, 1, 0.68, 1] }}
+          className="flex flex-col"
+        >
+          {/* Default State */}
+          <span className="font-black text-xl tracking-tighter uppercase text-black">
+            Utkarsh
+          </span>
+          {/* Hover State - Changes to Accent Color */}
+          <span className="font-black text-xl tracking-tighter uppercase text-[#bef264]">
+            Shende
+          </span>
+        </motion.div>
+      </div>
+
+      {/* The Closing Bracket */}
+      <span className="text-gray-400 text-xl font-light">{' />'}</span>
+      
+      {/* Small pulsing "Active" indicator next to name */}
+      <span className="w-1.5 h-1.5 rounded-full bg-[#bef264] ml-1 mb-4 animate-pulse"></span>
     </motion.div>
   );
 };

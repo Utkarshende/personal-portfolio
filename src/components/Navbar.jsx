@@ -16,10 +16,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-[100] px-6 md:px-20 py-8 flex justify-between items-center pointer-events-none">
-      {/* New Interactive Logo */}
+   <nav className="fixed top-0 w-full z-[100] px-6 md:px-20 py-8 flex justify-between items-center pointer-events-none">
       <div className="pointer-events-auto">
-        <Logo />
+        <a href="/">
+           <Logo />
+        </a>
       </div>
       
       <motion.a
