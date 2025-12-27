@@ -11,6 +11,11 @@
   cursor: none !important; /* Forces use of custom cursor */
 }
 
+.mix-blend-difference {
+  mix-blend-mode: difference;
+  background-color: white; /* In 'difference' mode, White background makes the cursor invert the colors beneath it */
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background-color: #ffffff;
