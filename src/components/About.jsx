@@ -9,7 +9,7 @@ const About = () => {
             seamless digital reality.
           </h2>
           <div className="flex justify-between items-end mt-20">
-            <p className="max-w-xs text-gray-400">Utkarsh Sharma — 2024 MCA Graduate specialized in the MERN Ecosystem.</p>
+            <p className="max-w-xs text-gray-400">Utkarsh Shende — 2024 MCA Graduate specialized in the MERN Ecosystem.</p>
             <div className="bg-[#bef264] text-black px-6 py-2 rounded-full font-bold uppercase text-xs">Based in India</div>
           </div>
         </div>

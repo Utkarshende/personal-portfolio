@@ -14,7 +14,7 @@ const Hero = () => {
         
         <h1 className="text-[14vw] md:text-[11vw] leading-[0.8] font-black uppercase tracking-tighter">
           UTKARSH <br />
-          <span className="text-gray-200">SHARMA</span>
+          <span className="text-gray-200">SHENDE</span>
         </h1>
 
         <div className="mt-16 flex flex-col md:flex-row justify-between items-end">
