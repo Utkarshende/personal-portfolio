@@ -1,22 +1,35 @@
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useSkewValues } from 'framer-motion';
+import { useRef } from 'react';
 
 const Marquee = () => {
-  const items = ["MongoDB", "Express", "React", "Node.js", "Tailwind", "Framer"];
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start end", "end start"]
+  });
+
+  // This makes the text speed up or tilt based on your scroll speed
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+  const skew = useTransform(scrollYProgress, [0, 1], [10, -10]);
+
+  const items = ["MongoDB", "Express", "React", "Node.js", "Tailwind", "Framer", "Redux", "JWT"];
 
   return (
-    <div className="py-20 bg-black overflow-hidden flex whitespace-nowrap border-y border-black">
+    <section ref={targetRef} className="py-10 bg-white overflow-hidden border-y border-black/5">
       <motion.div 
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-        className="flex gap-12 pr-12"
+        style={{ x, skewX: skew }}
+        className="flex whitespace-nowrap gap-10 items-center transition-all duration-300 ease-out"
       >
-        {[...items, ...items].map((item, i) => (
-          <span key={i} className="text-7xl md:text-9xl font-black text-white uppercase italic tracking-tighter">
-            {item} <span className="text-[#bef264]">/</span>
-          </span>
+        {[...items, ...items, ...items].map((item, i) => (
+          <div key={i} className="flex items-center gap-10">
+            <span className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-black/20 hover:text-black transition-colors duration-500">
+              {item}
+            </span>
+            <div className="w-3 h-3 rounded-full bg-[#bef264]" />
+          </div>
         ))}
       </motion.div>
-    </div>
+    </section>
   );
 };
 
