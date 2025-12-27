@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Logo from './Logo'; // Import the new logo
 import { useHoverSound } from '../hooks/useSound';
 
 const Navbar = () => {
@@ -16,11 +17,9 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 w-full z-[100] px-6 md:px-20 py-8 flex justify-between items-center pointer-events-none">
-      <div 
-        onMouseEnter={playHover}
-        className="font-black text-2xl tracking-tighter text-black pointer-events-auto cursor-none"
-      >
-        UTKARSH<span className="text-[#bef264]">.</span>
+      {/* New Interactive Logo */}
+      <div className="pointer-events-auto">
+        <Logo />
       </div>
       
       <motion.a
