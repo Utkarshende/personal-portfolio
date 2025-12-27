@@ -21,18 +21,29 @@ const Projects = () => {
           >
             {/* Project Info */}
             <div className="flex flex-col z-10">
-              <span className="text-xs font-mono text-gray-400 mb-2">0{i + 1}</span>
+              <div className="flex items-center gap-4 mb-2">
+                <span className="text-xs font-mono text-gray-400">0{i + 1}</span>
+                {/* Blinking Live Tag */}
+                <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white border border-gray-200">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  <span className="text-[8px] font-bold uppercase tracking-tighter text-black">Live Project</span>
+                </div>
+              </div>
+
               <h3 className="text-5xl md:text-7xl font-black uppercase tracking-tighter group-hover:italic transition-all duration-500">
                 {p.title}
               </h3>
-              <p className="mt-4 text-gray-500 group-hover:text-black max-w-sm text-sm uppercase font-bold tracking-widest">
+              <p className="mt-4 text-gray-500 group-hover:text-black max-w-sm text-sm uppercase font-bold tracking-widest leading-tight">
                 {p.description}
               </p>
             </div>
             
             {/* Tech & Links */}
             <div className="flex flex-col items-center md:items-end gap-6 mt-8 md:mt-0 z-10">
-              <div className="flex flex-wrap justify-center gap-2">
+              <div className="flex flex-wrap justify-center md:justify-end gap-2 max-w-[300px]">
                 {p.tech.map(t => (
                   <span key={t} className="px-4 py-1 border border-black rounded-full text-[10px] font-bold uppercase bg-white">
                     {t}
