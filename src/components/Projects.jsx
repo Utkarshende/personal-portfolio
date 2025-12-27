@@ -3,7 +3,10 @@ import { useHoverSound } from '../hooks/useSound';
 
 const Projects = () => {
   const playHover = useHoverSound();
-  const projects = projectsData;
+  const projects = [
+    { title: "E-Commerce", desc: "MERN Stack Application", tech: ["React", "Node", "Stripe"] },
+    { title: "Portfolio 2025", desc: "Creative Developer UI", tech: ["Framer Motion", "Tailwind"] }
+  ];
 
   return (
     <section id="projects" className="py-32 px-6 md:px-20 bg-white">
