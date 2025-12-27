@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useHoverSound } from '../hooks/useSound';
-import { projects } from '../data/projects'; // IMPORTING YOUR DATA HERE
+import { projects } from '../data/projects';
 
 const Projects = () => {
   const playHover = useHoverSound();
@@ -26,18 +26,37 @@ const Projects = () => {
               </h3>
             </div>
             
-            <div className="flex flex-col items-center md:items-end gap-4 mt-6 md:mt-0">
+            <div className="flex flex-col items-center md:items-end gap-6 mt-6 md:mt-0">
               <div className="flex gap-2">
                 {p.tech.map(t => (
-                  <span key={t} className="px-3 py-1 border border-black rounded-full text-[10px] font-bold uppercase">
+                  <span key={t} className="px-4 py-1 border border-black rounded-full text-[10px] font-bold uppercase bg-white">
                     {t}
                   </span>
                 ))}
               </div>
-              <p className="uppercase font-bold text-[10px] tracking-[0.3em] text-gray-500">{p.description}</p>
+              
+              {/* GitHub and Live Links Area */}
+              <div className="flex gap-6 items-center">
+                <a 
+                  href={p.github} 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="text-[10px] font-black uppercase tracking-widest border-b border-black hover:opacity-50 transition-opacity cursor-none"
+                >
+                  Source Code
+                </a>
+                
+                {/* The Arrow Trigger for Live Link */}
+                <a 
+                  href={p.link} 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="text-5xl group-hover:translate-x-4 group-hover:-translate-y-2 transition-transform cursor-none"
+                >
+                  ↗
+                </a>
+              </div>
             </div>
-            
-            <div className="text-5xl group-hover:translate-x-4 transition-transform hidden md:block">↗</div>
           </motion.div>
         ))}
       </div>
