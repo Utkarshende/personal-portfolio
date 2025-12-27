@@ -1,15 +1,15 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Skills from './components/Skills';
+import Marquee from './components/Marquee';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 
 function App() {
   return (
-    <main className="bg-[#0f172a] min-h-screen">
+    <main className="bg-white">
       <Navbar />
       <Hero />
-      <Skills />
+      <Marquee />
       <Projects />
       <Contact />
     </main>
