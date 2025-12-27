@@ -2,9 +2,6 @@ import { useEffect, useState } from 'react';
 import { motion, useSpring } from 'framer-motion';
 
 const Cursor = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  // useSpring makes the movement "lag" slightly behind the mouse for a smooth effect
   const mouseX = useSpring(0, { stiffness: 500, damping: 50 });
   const mouseY = useSpring(0, { stiffness: 500, damping: 50 });
 
@@ -13,14 +10,13 @@ const Cursor = () => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
     };
-
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [mouseX, mouseY]);
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-8 h-8 bg-[#bef264] rounded-full pointer-events-none z-[9999] mix-blend-difference"
+      className="fixed top-0 left-0 w-8 h-8 bg-black rounded-full pointer-events-none z-[9999] mix-blend-difference hidden md:block"
       style={{
         x: mouseX,
         y: mouseY,

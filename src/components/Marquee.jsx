@@ -1,18 +1,18 @@
 import { motion } from 'framer-motion';
 
 const Marquee = () => {
-  const words = ["REACT", "NODE.JS", "MONGODB", "EXPRESS", "TAILWIND", "REDUX"];
+  const items = ["MongoDB", "Express", "React", "Node.js", "Tailwind", "Framer"];
 
   return (
-    <div className="py-12 bg-black overflow-hidden flex whitespace-nowrap">
+    <div className="py-20 bg-black overflow-hidden flex whitespace-nowrap border-y border-black">
       <motion.div 
         animate={{ x: ["0%", "-50%"] }}
-        transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
-        className="flex gap-10 pr-10"
+        transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+        className="flex gap-12 pr-12"
       >
-        {[...words, ...words].map((word, i) => (
-          <span key={i} className="text-6xl md:text-8xl font-black text-white uppercase italic">
-            {word} <span className="text-[#bef264]">/</span>
+        {[...items, ...items].map((item, i) => (
+          <span key={i} className="text-7xl md:text-9xl font-black text-white uppercase italic tracking-tighter">
+            {item} <span className="text-[#bef264]">/</span>
           </span>
         ))}
       </motion.div>
