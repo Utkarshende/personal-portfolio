@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,31 +9,21 @@
 }
 
 * {
-  cursor: none !important; /* Forces use of custom cursor */
-}
-
-.mix-blend-difference {
-  mix-blend-mode: difference;
-  background-color: white; /* In 'difference' mode, White background makes the cursor invert the colors beneath it */
+  cursor: none !important;
 }
 
 body {
   font-family: 'Inter', sans-serif;
   background-color: #ffffff;
   color: #000000;
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-::selection {
-  background: var(--accent);
-  color: black;
-}
-.outline-text {
-  -webkit-text-stroke: 1px black;
-  color: transparent;
+/* Authentic Code Font Utility */
+.font-mono {
+  font-family: 'JetBrains Mono', monospace !important;
 }
 
-.outline-text:hover {
-  color: black;
+.mix-blend-difference {
+  mix-blend-mode: difference;
 }
