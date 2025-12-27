@@ -1,43 +1,43 @@
 import { motion } from 'framer-motion';
 import { useHoverSound } from '../hooks/useSound';
+import { projects } from '../data/projects'; // IMPORTING YOUR DATA HERE
 
 const Projects = () => {
   const playHover = useHoverSound();
-  const projects = [
-    { title: "E-Commerce", desc: "MERN Stack Application", tech: ["React", "Node", "Stripe"] },
-    { title: "Portfolio 2025", desc: "Creative Developer UI", tech: ["Framer Motion", "Tailwind"] }
-  ];
 
   return (
     <section id="projects" className="py-32 px-6 md:px-20 bg-white">
       <div className="flex items-baseline justify-between mb-20 border-b border-gray-100 pb-10">
-        <h2 className="text-6xl font-black uppercase tracking-tighter italic">Projects</h2>
-        <span className="text-gray-400 font-mono italic">0{projects.length} — WORKS</span>
+        <h2 className="text-6xl font-black uppercase tracking-tighter italic">Selected Work</h2>
+        <span className="text-gray-400 font-mono italic">({projects.length})</span>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid gap-2">
         {projects.map((p, i) => (
           <motion.div 
             key={i}
             onMouseEnter={playHover}
-            whileHover={{ y: -10 }}
-            className="group bg-[#f7f7f7] rounded-[3rem] p-10 h-[450px] flex flex-col justify-between cursor-none transition-all hover:bg-black hover:text-white"
+            className="group border-b border-gray-100 py-16 flex flex-col md:flex-row justify-between items-center transition-all hover:bg-[#bef264] px-8 cursor-none"
           >
-            <div>
-              <div className="flex justify-between items-start">
-                <h3 className="text-4xl font-bold uppercase tracking-tighter leading-none">{p.title}</h3>
-                <span className="text-2xl group-hover:rotate-45 transition-transform">↗</span>
-              </div>
-              <p className="mt-4 text-gray-500 group-hover:text-gray-400">{p.desc}</p>
+            <div className="flex flex-col">
+              <span className="text-xs font-mono text-gray-400 mb-2">0{i + 1}</span>
+              <h3 className="text-6xl font-black uppercase tracking-tighter group-hover:italic transition-all">
+                {p.title}
+              </h3>
             </div>
             
-            <div className="flex gap-2">
-              {p.tech.map(t => (
-                <span key={t} className="px-4 py-1 border border-current rounded-full text-[10px] font-bold uppercase">
-                  {t}
-                </span>
-              ))}
+            <div className="flex flex-col items-center md:items-end gap-4 mt-6 md:mt-0">
+              <div className="flex gap-2">
+                {p.tech.map(t => (
+                  <span key={t} className="px-3 py-1 border border-black rounded-full text-[10px] font-bold uppercase">
+                    {t}
+                  </span>
+                ))}
+              </div>
+              <p className="uppercase font-bold text-[10px] tracking-[0.3em] text-gray-500">{p.description}</p>
             </div>
+            
+            <div className="text-5xl group-hover:translate-x-4 transition-transform hidden md:block">↗</div>
           </motion.div>
         ))}
       </div>
