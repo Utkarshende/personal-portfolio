@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Logo from './Logo'; 
 import { useHoverSound } from '../hooks/useSound';
+import StatusIndicator from './StatusIndicator';
 
 const Navbar = () => {
   const playHover = useHoverSound();
@@ -23,6 +24,10 @@ const Navbar = () => {
         </a>
       </div>
       
+<div className="hidden md:block pointer-events-auto">
+        <StatusIndicator />
+      </div>
+
       <motion.a
         href="#contact"
         onMouseMove={handleMouse}
