@@ -9,9 +9,12 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     setStatus('sending');
+    console.log(
+  import.meta.env.VITE_EMAILJS_SERVICE_ID, 
+  import.meta.env.VITE_EMAILJS_TEMPLATE_ID, 
+  import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+);
 
-    // These IDs come from your EmailJS Dashboard
-    // Replace the placeholders with your actual keys
     emailjs.sendForm(
       'YOUR_SERVICE_ID', 
       'YOUR_TEMPLATE_ID', 

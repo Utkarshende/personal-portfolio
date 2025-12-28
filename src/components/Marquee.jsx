@@ -49,7 +49,7 @@ const Terminal = () => {
 
         <div className="mt-12 flex flex-col items-center gap-6">
           <motion.a
-            href="/Utkarsh_Sharma_CV.pdf"
+           href="/Utkarsha_Shende_Resume.pdf"
             download
             onMouseEnter={playHover}
             whileHover={{ scale: 1.05 }}
