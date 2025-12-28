@@ -3,10 +3,6 @@
 A high-performance, full-stack portfolio built to showcase modern web development capabilities. This project moves away from third-party services like EmailJS to a custom-built **MERN backend** for direct database communication.
 
 
-
-[Image of MERN stack architecture diagram]
-
-
 ## 🛠️ Tech Stack
 - **Frontend:** React.js, Tailwind CSS, Framer Motion (Animations)
 - **Backend:** Node.js, Express.js
