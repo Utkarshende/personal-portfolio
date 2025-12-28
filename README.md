@@ -1,16 +1,30 @@
-# Utkarsh Sharma | Creative MERN Stack Portfolio 2025
+# 🚀 Professional MERN Portfolio | Utkarsha Shende
 
-A high-end, minimalist developer portfolio inspired by premium design aesthetics (Aziz Khaldi). Built with **React**, **Framer Motion**, and **Tailwind CSS**, integrated with a **MERN** backend for contact management.
+A high-performance, full-stack portfolio built to showcase modern web development capabilities. This project moves away from third-party services like EmailJS to a custom-built **MERN backend** for direct database communication.
 
-## 🚀 Key Features
-- **Immersive UI/UX**: Custom spring-physics cursor and magnetic UI elements.
-- **Dynamic Preloader**: Percentage-based loading screen for optimized asset entry.
-- **MERN Integration**: Functional contact form connected to an Express/MongoDB backend.
-- **Micro-interactions**: Subtle audio feedback and staggered entrance animations.
-- **Responsive Design**: Fluid typography using Viewport Width (VW) scaling.
 
-## 🛠 Tech Stack
-- **Frontend**: React.js, Framer Motion, Tailwind CSS
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB
-- **Deployment**: Vercel (Frontend), Render (Backend)
+
+[Image of MERN stack architecture diagram]
+
+
+## 🛠️ Tech Stack
+- **Frontend:** React.js, Tailwind CSS, Framer Motion (Animations)
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB Atlas
+- **Deployment:** Netlify (Frontend) & Render (Backend)
+
+## ✨ Key Features
+- **Custom Contact API:** Direct integration with MongoDB to store user inquiries.
+- **Terminal UI:** Sleek, high-contrast dark mode design with lime-green accents.
+- **Responsive Design:** Fully optimized for mobile, tablet, and desktop.
+- **Modern Animations:** Smooth transitions using Framer Motion for a premium feel.
+
+## 🚀 Installation & Setup
+1. Clone the repository: `git clone [(https://github.com/Utkarshende/personal-portfolio.git)]`
+2. Install dependencies: `npm install`
+3. Set up your `.env` variables:
+   - `VITE_BACKEND_URL=your_backend_url`
+4. Run the app: `npm run dev`
+
+---
+📫 **Contact me:** utkarshap1403@gmail.com
