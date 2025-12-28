@@ -1,5 +1,6 @@
 node_modules/
 dist/
-.env
 **/.env
 portfolio-backend/.env  
+.env
+.env.local
