@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const contactRoute = require('./routes/contact');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -9,6 +10,7 @@ app.use(cors({
     methods: ['GET', 'POST']
 }));
 app.use(express.json());
+app.use('/api/contact', contactRoute);
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('Portfolio DB Connected'))
