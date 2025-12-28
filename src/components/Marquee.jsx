@@ -6,10 +6,10 @@ const Terminal = () => {
 
   const codeLines = [
     { line: '1', content: <><span className="text-purple-400">const</span> developer = {"{"}</> },
-    { line: '2', content: <>&nbsp;&nbsp;name: <span className="text-[#bef264]">'Utkarsh Sharma'</span>,</> },
+    { line: '2', content: <>&nbsp;&nbsp;name: <span className="text-[#bef264]">'Utkarsh Shende'</span>,</> },
     { line: '3', content: <>&nbsp;&nbsp;degree: <span className="text-[#bef264]">'MCA Graduate 2024'</span>,</> },
     { line: '4', content: <>&nbsp;&nbsp;specialization: [<span className="text-[#bef264]">'MERN'</span>, <span className="text-[#bef264]">'UI/UX'</span>],</> },
-    { line: '5', content: <>&nbsp;&nbsp;location: <span className="text-[#bef264]">'India'</span>,</> },
+    { line: '5', content: <>&nbsp;&nbsp;location: <span className="text-[#bef264]">'Nagpur'</span>,<span className="text-[#bef264]">'Maharshtra'</span>,</> },
     { line: '6', content: <>&nbsp;&nbsp;availability: <span className="text-orange-400">true</span></> },
     { line: '7', content: <><span className="text-purple-400">{"}"}</span>;</> },
     { line: '8', content: <><span className="text-purple-400">await</span> portfolio.<span className="text-blue-400">init</span>(developer);</> },

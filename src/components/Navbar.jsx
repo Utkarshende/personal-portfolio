@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import Logo from './Logo'; // Import the new logo
+import Logo from './Logo'; 
 import { useHoverSound } from '../hooks/useSound';
 
 const Navbar = () => {
@@ -29,7 +29,8 @@ const Navbar = () => {
         onMouseLeave={() => setPosition({ x: 0, y: 0 })}
         onMouseEnter={playHover}
         animate={{ x: position.x, y: position.y }}
-        className="bg-black text-white px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest hover:bg-[#bef264] hover:text-black transition-colors pointer-events-auto cursor-none shadow-xl"
+        className="bg-black text-white px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest hover:bg-[#bef264]
+         hover:text-black transition-colors pointer-events-auto cursor-none shadow-xl"
       >
         Let's Talk
       </motion.a>

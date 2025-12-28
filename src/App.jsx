@@ -31,8 +31,8 @@ function App() {
             <Hero />
             <About />
             <Marquee />
+             <Skills />
             <Projects />
-            <Skills />
             <Contact />
           </main>
         </div>
