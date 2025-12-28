@@ -17,8 +17,10 @@ const Contact = () => {
     };
 
     try {
-      // REPLACE with your actual backend URL (e.g., https://your-api.render.com/api/contact)
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/contact`, {
+      // Uses the environment variable from your .env or Netlify settings
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+      
+      const response = await fetch(`${backendUrl}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -31,7 +33,7 @@ const Contact = () => {
         form.current.reset();
         setTimeout(() => setStatus('idle'), 5000);
       } else {
-        throw new Error('Failed to save message');
+        throw new Error('Server responded with an error');
       }
     } catch (error) {
       console.error('Submission Error:', error);
@@ -44,53 +46,85 @@ const Contact = () => {
     <section id="contact" className="py-32 px-6 md:px-20 bg-black text-white min-h-screen flex items-center">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 w-full">
         
-        <div>
+        {/* Left Side: Branding */}
+        <div className="flex flex-col justify-center">
           <motion.h2 
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
             className="text-7xl md:text-9xl font-black uppercase tracking-tighter leading-none mb-10"
           >
-            Direct <br /> <span className="text-[#bef264]">Connect</span>
+            Let's <br /> <span className="text-[#bef264]">Build</span>
           </motion.h2>
-          <p className="font-mono text-gray-500 uppercase tracking-widest text-xs">
-            // Storing data to MongoDB Cluster_01
-          </p>
+          
+          <div className="font-mono text-gray-500 space-y-4">
+            <p className="text-[#bef264] tracking-widest">// CONNECT_PROTOCOL</p>
+            <p className="text-lg text-gray-300">utkarshpd1403@gmail.com</p>
+            <p className="text-[10px] uppercase tracking-[0.4em]">Nagpur, India — MCA 2024</p>
+          </div>
         </div>
 
+        {/* Right Side: Terminal Form */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="bg-[#0f0f0f] p-8 md:p-12 rounded-3xl border border-gray-800"
+          className="bg-[#0f0f0f] p-8 md:p-12 rounded-3xl border border-gray-800 relative shadow-2xl"
         >
+          {/* Decorative Terminal Header */}
+          <div className="flex gap-2 mb-12 border-b border-gray-900 pb-6 font-mono text-[10px] text-gray-700 uppercase tracking-widest">
+            <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
+            <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/40" />
+            <div className="w-2.5 h-2.5 rounded-full bg-green-500/40" />
+            <span className="ml-4">v2.0_stable_connection</span>
+          </div>
+
           <form ref={form} onSubmit={handleSubmit} className="space-y-10 font-mono">
-            <div className="space-y-2">
-              <label className="text-[#bef264] text-[10px] uppercase tracking-widest">Name</label>
-              <input name="from_name" type="text" className="w-full bg-transparent border-b border-gray-800 py-3 outline-none focus:border-[#bef264] transition-all" required />
+            <div className="relative group">
+              <label className="text-[#bef264] text-[10px] block mb-2 uppercase tracking-widest opacity-60 group-focus-within:opacity-100 transition-opacity">01. Identity</label>
+              <input 
+                name="from_name" 
+                type="text" 
+                placeholder="Name" 
+                className="w-full bg-transparent border-b border-gray-800 py-3 outline-none focus:border-[#bef264] transition-all text-sm"
+                required 
+              />
             </div>
 
-            <div className="space-y-2">
-              <label className="text-[#bef264] text-[10px] uppercase tracking-widest">Email</label>
-              <input name="reply_to" type="email" className="w-full bg-transparent border-b border-gray-800 py-3 outline-none focus:border-[#bef264] transition-all" required />
+            <div className="relative group">
+              <label className="text-[#bef264] text-[10px] block mb-2 uppercase tracking-widest opacity-60 group-focus-within:opacity-100 transition-opacity">02. Return_Path</label>
+              <input 
+                name="reply_to" 
+                type="email" 
+                placeholder="Email Address" 
+                className="w-full bg-transparent border-b border-gray-800 py-3 outline-none focus:border-[#bef264] transition-all text-sm"
+                required 
+              />
             </div>
 
-            <div className="space-y-2">
-              <label className="text-[#bef264] text-[10px] uppercase tracking-widest">Message</label>
-              <textarea name="message" rows="4" className="w-full bg-transparent border-b border-gray-800 py-3 outline-none focus:border-[#bef264] transition-all resize-none" required />
+            <div className="relative group">
+              <label className="text-[#bef264] text-[10px] block mb-2 uppercase tracking-widest opacity-60 group-focus-within:opacity-100 transition-opacity">03. Payload</label>
+              <textarea 
+                name="message" 
+                rows="4" 
+                placeholder="Your Message..." 
+                className="w-full bg-transparent border-b border-gray-800 py-3 outline-none focus:border-[#bef264] transition-all text-sm resize-none"
+                required 
+              />
             </div>
 
             <button 
               type="submit"
               disabled={status === 'sending'}
-              className={`w-full font-black py-5 rounded-full uppercase tracking-widest text-xs transition-all ${
+              className={`w-full font-black py-5 rounded-xl uppercase tracking-[0.3em] text-xs transition-all duration-500 ${
                 status === 'success' ? 'bg-green-600 text-white' : 
                 status === 'error' ? 'bg-red-600 text-white' : 
-                'bg-[#bef264] text-black hover:invert'
+                'bg-[#bef264] text-black hover:shadow-[0_0_30px_rgba(190,242,100,0.3)] hover:-translate-y-1'
               }`}
             >
-              {status === 'idle' && 'Send to Database'}
-              {status === 'sending' && 'Processing...'}
-              {status === 'success' && 'Message Saved!'}
-              {status === 'error' && 'Database Error'}
+              {status === 'idle' && 'Execute Transmission'}
+              {status === 'sending' && 'Transmitting...'}
+              {status === 'success' && 'Success: Received'}
+              {status === 'error' && 'Error: System Failure'}
             </button>
           </form>
         </motion.div>
