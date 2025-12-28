@@ -8,6 +8,7 @@ import Marquee from './components/Marquee';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Cursor from './components/Cursor';
+import Skills from './components/Skills';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -31,6 +32,7 @@ function App() {
             <About />
             <Marquee />
             <Projects />
+            <Skills />
             <Contact />
           </main>
         </div>

@@ -10,13 +10,9 @@ const About = () => {
           </h2>
           <div className="flex justify-between items-end mt-20">
             <p className="max-w-xs text-gray-400">Utkarsh Shende — 2024 MCA Graduate specialized in the MERN Ecosystem.</p>
-            <div className="bg-[#bef264] text-black px-6 py-2 rounded-full font-bold uppercase text-xs">Based in India</div>
           </div>
         </div>
-        <div className="bg-[#f0f0f0] p-10 rounded-[3rem] flex flex-col justify-center items-center">
-            <span className="text-8xl font-black italic">M</span>
-            <span className="font-bold uppercase tracking-widest text-sm mt-4 text-gray-400">Developer</span>
-        </div>
+
       </div>
     </section>
   );

@@ -1,44 +1,54 @@
-import { Code2, Server, Wrench } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Skills = () => {
-  const categories = [
+  const skillCategories = [
     {
       title: "Frontend",
-      icon: <Code2 className="text-blue-400" />,
-      skills: ["React.js", "JavaScript (ES6+)", "Tailwind CSS", "Redux Toolkit"]
+      skills: ["React.js", "Next.js", "Tailwind CSS", "Framer Motion", "Redux Toolkit"]
     },
     {
       title: "Backend",
-      icon: <Server className="text-emerald-400" />,
-      skills: ["Node.js", "Express.js", "MongoDB", "REST APIs", "Socket.io"]
+      skills: ["Node.js", "Express.js", "Rest API", "Socket.io", "JWT"]
     },
     {
-      title: "Tools & Deployment",
-      icon: <Wrench className="text-purple-400" />,
-      skills: ["Git/GitHub", "Postman", "Vercel", "Render", "JWT"]
+      title: "Database & Tools",
+      skills: ["MongoDB", "PostgreSQL", "Git/GitHub", "Docker", "Postman"]
     }
   ];
 
   return (
-    <section id="skills" className="py-20 bg-[#0f172a] px-6">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-white mb-12 text-center">Technical Toolbox</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {categories.map((cat, i) => (
-            <div key={i} className="bg-slate-800/30 border border-white/5 p-8 rounded-2xl hover:bg-slate-800/50 transition-all">
-              <div className="mb-4">{cat.icon}</div>
-              <h3 className="text-xl font-bold text-white mb-4">{cat.title}</h3>
-              <ul className="space-y-2">
-                {cat.skills.map(skill => (
-                  <li key={skill} className="text-gray-400 text-sm flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
-                    {skill}
-                  </li>
-                ))}
-              </ul>
+    <section id="skills" className="py-24 px-6 md:px-20 bg-white">
+      <div className="flex items-baseline gap-4 mb-16 border-b border-gray-100 pb-10">
+        <h2 className="text-6xl font-black uppercase tracking-tighter italic">Technical Stack</h2>
+        <span className="text-[#bef264] font-mono font-bold text-xl">//</span>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {skillCategories.map((cat, i) => (
+          <motion.div 
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            className="group p-8 border border-gray-100 bg-[#f9f9f9] hover:bg-black transition-colors duration-500 rounded-2xl"
+          >
+            <h3 className="text-xs font-mono font-bold uppercase tracking-widest text-gray-400 group-hover:text-[#bef264] mb-8 transition-colors">
+              {cat.title}
+            </h3>
+            
+            <div className="flex flex-wrap gap-3">
+              {cat.skills.map((skill, idx) => (
+                <span 
+                  key={idx} 
+                  className="text-lg md:text-xl font-bold tracking-tight text-black group-hover:text-white transition-colors"
+                >
+                  {skill}{idx !== cat.skills.length - 1 && <span className="text-[#bef264] ml-2">/</span>}
+                </span>
+              ))}
             </div>
-          ))}
-        </div>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

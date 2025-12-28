@@ -9,11 +9,11 @@ const Hero = () => {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
         <span className="text-xs font-bold uppercase tracking-[0.3em] text-gray-400 mb-8 block">
-          Based in India / MERN Developer
+        Full-stack Developer
         </span>
         
         <h1 className="text-[14vw] md:text-[11vw] leading-[0.8] font-black uppercase tracking-tighter">
-          UTKARSH <br />
+          UTKARSHA <br />
           <span className="text-gray-200">SHENDE</span>
         </h1>
 

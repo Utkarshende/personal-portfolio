@@ -19,7 +19,7 @@ const Preloader = () => {
     >
       <div className="flex justify-between items-end">
         <h1 className="text-9xl font-black italic">{count}%</h1>
-        <p className="text-xl font-bold uppercase tracking-widest">Utkarsh Sharma © 2025</p>
+        <p className="text-xl font-bold uppercase tracking-widest">Utkarsh Shende © 2025</p>
       </div>
     </motion.div>
   );
