@@ -17,7 +17,7 @@ const Contact = () => {
     };
 
     try {
-      // Uses the environment variable from your .env or Netlify settings
+      // Points to your backend (ensure VITE_BACKEND_URL is in your .env)
       const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
       
       const response = await fetch(`${backendUrl}/api/contact`, {
@@ -112,20 +112,31 @@ const Contact = () => {
               />
             </div>
 
-            <button 
-              type="submit"
-              disabled={status === 'sending'}
-              className={`w-full font-black py-5 rounded-xl uppercase tracking-[0.3em] text-xs transition-all duration-500 ${
-                status === 'success' ? 'bg-green-600 text-white' : 
-                status === 'error' ? 'bg-red-600 text-white' : 
-                'bg-[#bef264] text-black hover:shadow-[0_0_30px_rgba(190,242,100,0.3)] hover:-translate-y-1'
-              }`}
-            >
-              {status === 'idle' && 'Execute Transmission'}
-              {status === 'sending' && 'Transmitting...'}
-              {status === 'success' && 'Success: Received'}
-              {status === 'error' && 'Error: System Failure'}
-            </button>
+            {/* Button Group */}
+            <div className="flex flex-col gap-4">
+              <button 
+                type="submit"
+                disabled={status === 'sending'}
+                className={`w-full font-black py-5 rounded-xl uppercase tracking-[0.3em] text-xs transition-all duration-500 ${
+                  status === 'success' ? 'bg-green-600 text-white' : 
+                  status === 'error' ? 'bg-red-600 text-white' : 
+                  'bg-[#bef264] text-black hover:shadow-[0_0_30px_rgba(190,242,100,0.3)] hover:-translate-y-1'
+                }`}
+              >
+                {status === 'idle' && 'Execute Transmission'}
+                {status === 'sending' && 'Transmitting...'}
+                {status === 'success' && 'Success: Received'}
+                {status === 'error' && 'Error: System Failure'}
+              </button>
+
+              <a 
+                href="/Utkarsha_Shende_Resume.pdf" 
+                download="Utkarsha_Shende_Resume.pdf"
+                className="w-full block text-center font-mono py-4 rounded-xl uppercase tracking-[0.2em] text-[10px] border border-gray-800 text-gray-500 hover:border-[#bef264] hover:text-[#bef264] transition-all cursor-pointer"
+              >
+                [ Download_Static_Resume.pdf ]
+              </a>
+            </div>
           </form>
         </motion.div>
       </div>
