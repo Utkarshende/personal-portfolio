@@ -3,8 +3,7 @@ import { useState, useRef } from 'react';
 
 const Contact = () => {
   const form = useRef();
-  const [status, setStatus] = useState('idle'); // idle, sending, success, error
-
+  const [status, setStatus] = useState('idle'); 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
@@ -17,7 +16,6 @@ const Contact = () => {
     };
 
     try {
-      // Points to your backend (ensure VITE_BACKEND_URL is in your .env)
       const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
       
       const response = await fetch(`${backendUrl}/api/contact`, {
@@ -46,7 +44,7 @@ const Contact = () => {
     <section id="contact" className="py-32 px-6 md:px-20 bg-black text-white min-h-screen flex items-center">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 w-full">
         
-        {/* Left Side: Branding */}
+      
         <div className="flex flex-col justify-center">
           <motion.h2 
             initial={{ opacity: 0, x: -50 }}
@@ -64,13 +62,11 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Right Side: Terminal Form */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           className="bg-[#0f0f0f] p-8 md:p-12 rounded-3xl border border-gray-800 relative shadow-2xl"
         >
-          {/* Decorative Terminal Header */}
           <div className="flex gap-2 mb-12 border-b border-gray-900 pb-6 font-mono text-[10px] text-gray-700 uppercase tracking-widest">
             <div className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
             <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/40" />
@@ -112,7 +108,6 @@ const Contact = () => {
               />
             </div>
 
-            {/* Button Group */}
             <div className="flex flex-col gap-4">
               <button 
                 type="submit"

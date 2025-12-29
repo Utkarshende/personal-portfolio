@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Message = require('../models/Message');
 
-// POST: Save message to MongoDB
 router.post('/', async (req, res) => {
   const { from_name, reply_to, message } = req.body;
 
